@@ -1,0 +1,121 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    font-family: Raleway;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+.top-banner {
+    height: 62px;
+    width: 100%;
+    display: block;
+}
+
+
+.top-banner-font {
+    font-size: 15px;
+    color: white !important;
+}
+
+.navbar-nav > li > a {
+    color: white !important;
+    transition: border-bottom 0.2s;
+    border-bottom: 3px solid transparent;
+    text-decoration: none;
+}
+
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus {
+    border-bottom: 3px solid white;
+}
+
+.menu-item-margin {
+    margin: 0px 5px 0px 5px;
+}
+
+.nav-margin-top {
+    margin-top:10px;
+}
+
+
+.navbar-nav > li.navbar-right {
+    float: right !important;
+}
+
+
+#hex-container {
+    padding-top: 10px;
+}
+
+#title-container {
+    margin-left: 20px;
+}
+
+.title-name {
+    font-size:20px;
+}
+
+.title-description {
+    color: #cccccc;
+}
+
+.footer {
+    background-color: #222;
+    height: 40px;
+    width:100%;
+    color:white;
+    font-size:30px;
+}
+
+.align-center {
+    margin: 0 auto !important;
+    text-align: center;
+}
+
+.link {
+    opacity: 1;
+    transition-duration: 0.2s;
+    cursor:pointer;
+    color:white !important;
+}
+
+
+.link:hover {
+    opacity: 0.5;
+    transition-duration: 0.2s;
+}
+
+
+
+@media only screen and (min-width: 576px) {
+    #hex:hover {
+        -ms-transform: rotate(60deg);
+        -webkit-transform: rotate(60deg);
+        transform: rotate(60deg);
+        transition-duration: 0.9s;
+    }
+
+    #hex {
+        -ms-transform: rotate(-60deg);
+        -webkit-transform: rotate(-60deg);
+        transform: rotate(-60deg);
+        transition-duration: 0.9s;
+        cursor: pointer;
+    }
+}
+@media only screen and (max-width: 768px) {
+    #hex-container {
+        margin-left:10px;
+    }
+}
