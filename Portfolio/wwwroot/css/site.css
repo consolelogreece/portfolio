@@ -70,6 +70,11 @@ body {
     color: #cccccc;
 }
 
+.card-container {
+    padding: 6px;
+
+}
+
 .footer {
     background-color: #222;
     height: 40px;
@@ -114,8 +119,124 @@ body {
         cursor: pointer;
     }
 }
+
+.data-mobile {
+    display: none;
+}
+
 @media only screen and (max-width: 768px) {
     #hex-container {
         margin-left:10px;
     }
+
+    #column-names {
+        display:none;
+    }
+
+    .container-img {
+        display: block;
+        width: 100%;
+    }
+
+    .data-mobile {
+        display: block;
+        border-bottom: 2px solid #222;
+    }
+}
+
+@media only screen and (min-width:768px) {
+    .content:hover .content-details {
+        top: 50%;
+        left: 50%;
+        opacity: 1;
+    }
+
+    .content:hover .content-overlay {
+        opacity: 1;
+    }
+}
+
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.main-title {
+    color: #2d2d2d;
+    text-align: center;
+    text-transform: capitalize;
+    padding: 0.7em 0;
+}
+
+.container-img {
+    float: left;
+    width: 100%;
+}
+
+.container-img .title {
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.content .content-overlay {
+    background: rgba(0,0,0,0.7);
+    position: absolute;
+    height: 99%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    -webkit-transition: all 0.4s ease-in-out 0s;
+    -moz-transition: all 0.4s ease-in-out 0s;
+    transition: all 0.4s ease-in-out 0s;
+}
+
+.content-image {
+    width:100%;
+}
+
+.content-details {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -moz-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.content-details h3 {
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.content-details p {
+    color: #fff;
+    font-size: 0.8em;
+}
+
+.fadeIn-bottom {
+    top: 80%;
 }
