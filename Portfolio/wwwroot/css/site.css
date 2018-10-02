@@ -4,7 +4,6 @@ for details on configuring this project to bundle and minify static web assets. 
 
 body {
     padding-top: 50px;
-    padding-bottom: 20px;
     font-family: Raleway;
 }
 
@@ -41,18 +40,20 @@ body {
 }
 
 .menu-item-margin {
-    margin: 0px 5px 0px 5px;
+    margin: 10px 5px 0px 5px;
+}
+
+.menu-item-text {
+    font-size:10px;
 }
 
 .nav-margin-top {
     margin-top:10px;
 }
 
-
 .navbar-nav > li.navbar-right {
     float: right !important;
 }
-
 
 #hex-container {
     padding-top: 10px;
@@ -60,27 +61,31 @@ body {
 
 #title-container {
     margin-left: 20px;
+    margin-top:3px;
 }
 
 .title-name {
-    font-size:20px;
+    font-size:18px;
 }
 
 .title-description {
     color: #cccccc;
+    font-size:10px;
 }
 
 .card-container {
     padding: 6px;
-
 }
+
+
+
 
 .footer {
     background-color: #222;
     height: 40px;
     width:100%;
     color:white;
-    font-size:30px;
+    font-size:30px
 }
 
 .align-center {
@@ -103,28 +108,16 @@ body {
 
 
 
-@media only screen and (min-width: 576px) {
-    #hex:hover {
-        -ms-transform: rotate(60deg);
-        -webkit-transform: rotate(60deg);
-        transform: rotate(60deg);
-        transition-duration: 0.9s;
-    }
-
-    #hex {
-        -ms-transform: rotate(-60deg);
-        -webkit-transform: rotate(-60deg);
-        transform: rotate(-60deg);
-        transition-duration: 0.9s;
-        cursor: pointer;
-    }
-}
 
 .data-mobile {
     display: none;
 }
 
-@media only screen and (max-width: 768px) {
+.grecaptcha-badge {
+   display: none !important
+}
+
+@media only screen and (max-width: 769px) {
     #hex-container {
         margin-left:10px;
     }
@@ -140,8 +133,13 @@ body {
 
     .data-mobile {
         display: block;
-        border-bottom: 2px solid #222;
+        text-align:center;
     }
+
+    .content {
+        box-shadow: none !important;
+    }
+
 }
 
 @media only screen and (min-width:768px) {
@@ -153,6 +151,31 @@ body {
 
     .content:hover .content-overlay {
         opacity: 1;
+    }
+    #hex:hover {
+        -ms-transform: rotate(60deg);
+        -webkit-transform: rotate(60deg);
+        transform: rotate(60deg);
+        transition-duration: 0.9s;
+    }
+
+    #hex {
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+        transition-duration: 0.9s;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width:310px) {
+    #hex-container {
+        display:none;
+    }
+}
+@media only screen and (max-width:260px) {
+    #title-container {
+        display: none;
     }
 }
 
@@ -189,12 +212,12 @@ body {
     max-width: 400px;
     margin: auto;
     overflow: hidden;
+    box-shadow: 4px 4px #808080;
 }
 
 .content .content-overlay {
     background: rgba(0,0,0,0.7);
     position: absolute;
-    height: 99%;
     width: 100%;
     left: 0;
     top: 0;
