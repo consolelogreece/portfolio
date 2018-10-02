@@ -17,6 +17,9 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top top-banner-font">
@@ -30,7 +33,14 @@
                 </button>
                 <div>
                     <div style="float:left;" id="hex-container">
-                        <svg id="hex" width="44" height="50" style="filter: drop-shadow(rgba(255, 255, 255, 0.5) 0px 0px 10px);"><path fill="#fff" d="M18.186533479473212 1.9999999999999998Q21.650635094610966 0 25.11473670974872 1.9999999999999998L39.837168574084174 10.5Q43.30127018922193 12.5 43.30127018922193 16.5L43.30127018922193 33.5Q43.30127018922193 37.5 39.837168574084174 39.5L25.11473670974872 48Q21.650635094610966 50 18.186533479473212 48L3.464101615137755 39.5Q0 37.5 0 33.5L0 16.5Q0 12.5 3.464101615137755 10.5Z"></path></svg>
+                        <div id="hex" style="position:relative;">
+                            <a href="https://github.com/consolelogreece">
+                                <i style="color:#333; z-index: 1; position:absolute; top:18%; left:16%; font-size:30px" class="fab fa-github"></i>
+                            </a>
+                            <svg width="44" height="50" style="filter:drop-shadow(rgba(255, 255, 255, 0.5) 0px 0px 10px); fill:transparent;">
+                                <path fill="#fff" d="M18.186533479473212 1.9999999999999998Q21.650635094610966 0 25.11473670974872 1.9999999999999998L39.837168574084174 10.5Q43.30127018922193 12.5 43.30127018922193 16.5L43.30127018922193 33.5Q43.30127018922193 37.5 39.837168574084174 39.5L25.11473670974872 48Q21.650635094610966 50 18.186533479473212 48L3.464101615137755 39.5Q0 37.5 0 33.5L0 16.5Q0 12.5 3.464101615137755 10.5Z"></path>
+                            </svg>
+                        </div>
                     </div>
                     <div style="float:left;" id="title-container">
                         <h5 class="title-name">Consolelogreece</h5>
@@ -39,10 +49,10 @@
                 </div> 
             </div>
             <div class=" top-banner-font navbar-collapse collapse">
-                <ul class="navbar-right nav navbar-nav nav-margin-top">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index" class="menu-item-margin">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About" class="menu-item-margin">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact" class="menu-item-margin">Contact</a></li>
+                <ul class="navbar-right nav navbar-nav nav-margin-top align-center">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index" class="menu-item-margin menu-item-text">H O M E</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About" class="menu-item-margin menu-item-text">A B O U T</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact" class="menu-item-margin menu-item-text">C O N T A C T</a></li>
                 </ul>
             </div>
         </div>
