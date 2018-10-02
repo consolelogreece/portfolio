@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Portfolio.Models;
+using Portfolio.Services.RecaptchaService;
+using Portfolio.ViewModels;
 
 namespace Portfolio.Controllers
 {
@@ -15,29 +20,18 @@ namespace Portfolio.Controllers
             return View();
         }
 
-        public IActionResult About()
+        [HttpPost]
+        public async Task<IActionResult> Index(ContactViewModel contactViewModel, [FromServices] IRecaptchaService recaptchaService)
         {
-            ViewData["Message"] = "Your application description page.";
+            var isRecaptchaSuccessful = await recaptchaService.ReCaptchaPassed(Request.Form["g-recaptcha-response"]);
 
-            return View();
-        }
+            if (!isRecaptchaSuccessful)
+            {
+                ModelState.AddModelError(string.Empty, "Beep, boop! (Translation: Go away robot!)");
+                return View(contactViewModel);
+            }
 
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(contactViewModel);
         }
     }
 }
