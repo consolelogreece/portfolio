@@ -4,139 +4,52 @@
 }
 
 <div>
-    <div class="container">
+    <div id="about" class="container">
         <h3 class="align-center">About me</h3>
         <hr />
     </div>
-
-    <div class="container">
+    <div id="projects" class="container">
         <h3 class="align-center">Some Projects</h3>
         <hr />
 
-        <div id="column-names" class="row align-center">
-            <div class="col-sm-4">
-                Personal project
-            </div>
-            <div class="col-sm-4">
-                Personal project
-            </div>
-            <div class="col-sm-4">
-                Open source project
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-sm-4 card-container">
-                <div class="card">
-                    <div class="container-img">
-                        <div class="content">
-                            <div class="data-mobile">
-                                <h3 class="content-title">Kinterest - Personal project</h3>
-                                <p class="content-text">Full-stack Pinterest clone</p>
-                            </div>
-                            <a href="https://console-log-reece-kinterest.herokuapp.com/">
-                                <div class="content-overlay"></div>
-                                <img class="content-image" src="~/images/kinterest-portfolio.png">
-                                <div class="content-details fadeIn-bottom">
-                                    <h3 class="content-title">Kinterest</h3>
-                                    <p class="content-text">Full-stack Pinterest clone</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 card-container">
-                <div class="card">
-                    <div class="container-img">
-                        <div class="content">
-                            <div class="data-mobile">
-                                <h3 class="content-title">Beans - personal project</h3>
-                                <p class="content-text">This is a short description</p>
-                            </div>
-                            <a href="https://unsplash.com/photos/HkTMcmlMOUQ">
-                                <div class="content-overlay"></div>
-                                <img class="content-image" src="~/images/kinterest-portfolio.png">
-                                <div class="content-details fadeIn-bottom">
-                                    <h3 class="content-title">This is a title</h3>
-                                    <p class="content-text">full stack</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4 card-container">
-                <div class="card">
-                    <div class="container-img">
-                        <div class="content">
-                            <div class="data-mobile">
-                                <h3 class="content-title">Volvox.Helios - Open source</h3>
-                                <p class="content-text">Web based discord bot</p>
-                            </div>
-                            <a href="http://http://www.volvox.tech/">
-                                <div class="content-overlay"></div>
-                                <img class="content-image" src="~/images/volvox-portfolio.png">
-                                <div class="content-details fadeIn-bottom">
-                                    <h3 class="content-title">Volvox.Helios</h3>
-                                    <p class="content-text">Web based discord bot</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @await Html.PartialAsync("_ProjectsPartial")
     </div>
-
-    <div style="margin-top:20px" class="container">
+    <div id="contact" style="margin-top:20px;" class="container">
         <h3 class="align-center">Contact</h3>
         <hr />
-
-        <div class="container-fluid align-center">
-            <div class="row">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-8">
-                    <form id="contactform" method="post">
-                        <div asp-validation-summary="All" class="text-danger"></div>
-                        <div class="form-group">
-                            <label asp-for="Name"></label> <br />
-                            <input class="form-control required" asp-for="Name" />
-                            <span asp-validation-for="Name"></span>
-                        </div>
-
-                        <div class="form-group">
-                            <label asp-for="Email"></label><br />
-                            <input class="form-control required" asp-for="Email" />
-                            <span asp-validation-for="Email"></span>
-                        </div>
-
-                        <div class="form-group">
-                            <label asp-for="Message"></label><br />
-                            <input class="form-control required" asp-for="Message" />
-                            <span asp-validation-for="Message"></span>
-                        </div>
-
-                        <button class="g-recaptcha btn" style="width:100%; background-color:#222; color:white"
-                                data-sitekey="6LdYA3MUAAAAAA85SVRzqAUrb570WeT9rh3PSexK"
-                                data-size="invisible"
-                                data-callback="submitForm">
-                            Submit
-                        </button>
-                        <label class="recaptcha-notice">Protected by ReCaptcha. <a href="https://www.google.com/intl/en/policies/privacy/">Privacy</a> <a href="https://www.google.com/intl/en/policies/terms/">Terms</a></label>
-                    </form>
-                </div>
-                <div class="col-sm-2"></div>
-            </div>
-        </div>
+        @await Html.PartialAsync("_ContactFormPartial", Model)
     </div>
 </div>
 
-@section scripts{ 
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script>
-        function submitForm(){
-            $("#contactform").submit();
-        }
+        $(document).ready(function () { 
+            var validator = $("#contactform").data('validator');
+
+            validator.settings.highlight = function (el) {
+                // icon span is second sibling child, 
+                var ax = $(el).siblings()[1];
+
+                // icon itself is first child of span
+                var x = $(ax).children()[0];
+
+                $(x).removeClass(["glyphicon-star", "glyphicon-ok"]).addClass("glyphicon-alert");
+            }
+            validator.settings.unhighlight = function (el) {
+                // icon span is second sibling child, 
+                var ax = $(el).siblings()[1];
+
+                // icon itself is first child of span
+                var x = $(ax).children()[0];
+
+                $(x).removeClass(["glyphicon-star", "glyphicon-alert"]).addClass("glyphicon-ok");
+            }
+        })
+        
+        function SubmitForm() {  
+            $("#contactform").submit();  
+        } 
     </script>
 }
-

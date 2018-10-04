@@ -27,7 +27,8 @@ namespace Portfolio.Controllers
 
             if (!isRecaptchaSuccessful)
             {
-                ModelState.AddModelError(string.Empty, "Beep, boop! (Translation: Go away robot!)");
+                Response.StatusCode = 403;
+
                 return View(contactViewModel);
             }
 

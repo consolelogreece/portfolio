@@ -30,13 +30,13 @@ body {
 .navbar-nav > li > a {
     color: white !important;
     transition: border-bottom 0.2s;
-    border-bottom: 3px solid transparent;
+    border-bottom: 2px solid transparent;
     text-decoration: none;
 }
 
 .navbar-nav > li > a:hover,
 .navbar-nav > li > a:focus {
-    border-bottom: 3px solid white;
+    border-bottom: 2px solid white;
 }
 
 .menu-item-margin {
@@ -77,15 +77,20 @@ body {
     padding: 6px;
 }
 
+.recaptcha-notice {
+    font-size:12px;
+}
 
-
+.recaptcha-notice > a{
+    color:#666;
+}
 
 .footer {
     background-color: #222;
     height: 40px;
-    width:100%;
-    color:white;
-    font-size:30px
+    width: 100%;
+    color: white;
+    font-size: 30px
 }
 
 .align-center {
@@ -105,9 +110,48 @@ body {
     opacity: 0.5;
     transition-duration: 0.2s;
 }
+#success_message {
+    display: none;
+}
 
+.required-indicator {
+    color:#222;
+    font-size:14px;
+}
 
+.validation-message {
+    font-family: Raleway;
+    font-size: inherit;
+    float: right;
+    color: #ff7b00;
+}
 
+.glyphicon-alert {
+    color: #ff7b00;
+}
+
+.glyphicon-ok {
+    color: forestgreen;
+}
+
+.glyphicon-star {
+    color: #555;
+}
+
+textarea {
+    resize: none;
+}
+
+.submit-button {
+    width: 100%;
+    background-color: #222;
+    color: white
+}
+
+.submit-button:hover {
+    background-color: #333;
+    color:white;
+}
 
 .data-mobile {
     display: none;
@@ -117,7 +161,7 @@ body {
    display: none !important
 }
 
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 768px) {
     #hex-container {
         margin-left:10px;
     }
@@ -187,6 +231,13 @@ body {
     box-sizing: border-box;
 }
 
+.alert-icon {
+    display:none;
+}
+
+.display-none {
+    display:none;
+}
 
 .main-title {
     color: #2d2d2d;

@@ -1,0 +1,64 @@
+﻿@model Portfolio.ViewModels.ContactViewModel
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <form id="contactform" method="post">
+                <div class="form-group">
+                    <label asp-for="Name"></label><span class="required-indicator">*</span> <span asp-validation-for="Name" class="validation-message"></span> <br />
+                    <div class="inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input value="" for="Name" class="form-control required" placeholder="Johnny English" asp-for="Name" required maxlength="100" />
+                            <span class="input-group-addon"><i class="glyphicon glyphicon glyphicon-star"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label asp-for="Email"></label><span class="required-indicator">*</span> <span asp-validation-for="Email" class="validation-message"></span><br />
+                            <div class="inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                    <input value="" for="Email" type="email" class="form-control required" placeholder="J_English@mi6.com" asp-for="Email" required maxlength="150" />
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label asp-for="Subject"></label><span class="required-indicator">*</span><span asp-validation-for="Subject" class="validation-message"></span><br />
+                            <div class="inputGroupContainer">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
+                                    <input value="" for="Subject" class="form-control required" placeholder="Business enquiry" asp-for="Subject" required maxlength="200" />
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Message"></label><span class="required-indicator">*</span> <span asp-validation-for="Message" class="validation-message"></span><br />
+                    <div class="inputGroupContainer">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                            <textarea value="" for="Message" class="form-control required" placeholder="If I told you, i'm afraid i'd have to kill you." asp-for="Message" rows="5" required maxlength="750" minlength="10"></textarea>
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-star"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <button class="g-recaptcha btn submit-button"
+                        data-sitekey="6LdYA3MUAAAAAA85SVRzqAUrb570WeT9rh3PSexK"
+                        data-size="invisible"
+                        data-callback="SubmitForm">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+                <label class="recaptcha-notice align-center" style="display:block">Protected by ReCaptcha. <a href="https://www.google.com/intl/en/policies/privacy/">Privacy</a>, <a href="https://www.google.com/intl/en/policies/terms/">Terms</a>.</label>
+            </form>
+        </div>
+        <div class="col-sm-1"></div>
+    </div>
+</div>
