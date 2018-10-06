@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Portfolio.Services.EmailService;
 using Portfolio.Services.RecaptchaService;
 
 namespace Portfolio
@@ -37,7 +38,9 @@ namespace Portfolio
 
             services.AddSingleton<IConfiguration>(Configuration);
 
-            services.AddSingleton<IRecaptchaService, RecaptchaService>();    
+            services.AddSingleton<IRecaptchaService, RecaptchaService>();
+
+            services.AddScoped<IEmailService, EmailService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
